@@ -20,7 +20,7 @@ def emoji() -> str:
 def main() -> None:
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
-    text = emoji()
+    text = emoji().strip()
     if not text.strip():
         raise ValueError("entry is blank")
     if len(text) > MAX_EMOJI_CHARS:
