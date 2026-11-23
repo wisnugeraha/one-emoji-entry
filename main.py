@@ -7,7 +7,7 @@ the emoji most likely to make a stranger smile.
 import os
 
 
-MAX_CHARS = 8
+MAX_EMOJI_CHARS = 8  # the gate's cap: one emoji, no room for a caption
 
 EMOJI = "\U0001F604"
 
@@ -23,8 +23,8 @@ def main() -> None:
     text = emoji()
     if not text.strip():
         raise ValueError("entry is blank")
-    if len(text) > MAX_CHARS:
-        raise ValueError(f"emoji is {len(text)} chars (max {MAX_CHARS})")
+    if len(text) > MAX_EMOJI_CHARS:
+        raise ValueError(f"emoji is {len(text)} chars (max {MAX_EMOJI_CHARS})")
     path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(text + "\n")
